@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{.Title}} | Blog do Leonardo</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <main class="content">
+            {{if eq .Title "Home"}}
+            {{ template "home.html" .Content }}
+            {{else}}
+            {{ template "post.html" .Content }}
+            {{end}}
+        </main>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; {{ now.Year }} leomagdanello</p>
+    </footer>
+</body>
+
+</html>

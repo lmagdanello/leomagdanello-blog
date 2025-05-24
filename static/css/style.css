@@ -1,0 +1,69 @@
+body {
+  background-color: #000;
+  color: #ccc;
+  font-family: "Courier New", Courier, monospace;
+  margin: 0;
+  padding: 2rem;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.page-header h1 {
+  color: #0f0;
+  border-bottom: 1px dashed #0f0;
+  padding-bottom: 0.5rem;
+}
+
+a {
+  color: #00ffff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.post-summary {
+  margin-bottom: 2rem;
+}
+
+.post-summary h2 a::before {
+  content: ">> ";
+  color: #0f0;
+}
+
+.post-meta {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+}
+
+.read-more {
+  color: #0f0;
+  font-weight: bold;
+}
+
+footer.footer {
+  margin-top: 3rem;
+  border-top: 1px dashed #0f0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.post-header h1 {
+  color: #0ff;
+  font-size: 1.5rem;
+}
+
+.post-content {
+  margin-top: 1rem;
+}
+
+.sidebar {
+  display: none; /* ativar se quiser no futuro */
+}

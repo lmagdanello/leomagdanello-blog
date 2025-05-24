@@ -1,0 +1,50 @@
+# binários gerados
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# diretórios comuns de build
+bin/
+build/
+
+# arquivos temporários do sistema
+.DS_Store
+Thumbs.db
+
+# cache do Go
+/pkg/
+/vendor/
+/dist/
+
+# arquivos do editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# backups comuns
+*.bak
+*.tmp
+
+# arquivos de log
+*.log
+
+# cobertura de testes
+coverage.out
+
+# posts gerados por erro
+*.md~
+*.html~
+
+# evita commits acidentais de dados de produção
+.env
+.env.local
+
+# ignora arquivos gerados por execução local
+/tmp/
+*.db
