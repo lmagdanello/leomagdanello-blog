@@ -32,7 +32,7 @@ func main() {
 
 	// Rotas
 	http.HandleFunc("/", handler.HomeHandler(posts, books, links))
-	http.HandleFunc("/post/", handler.PostHandler(posts))
+	http.HandleFunc("/post/", handler.PostHandler(posts, books, links))
 
 	log.Println("Servidor rodando em http://localhost:8080")
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
