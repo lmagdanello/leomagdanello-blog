@@ -16,14 +16,16 @@ type Post struct {
 	Title    string
 	Author   string
 	Date     time.Time
+	Tags     string
 	Filename string
 	HTML     string
 }
 
 type frontMatter struct {
-	Title  string `yaml:"title"`
-	Author string `yaml:"author"`
-	Date   string `yaml:"date"`
+	Title  string   `yaml:"title"`
+	Author string   `yaml:"author"`
+	Date   string   `yaml:"date"`
+	Tags   []string `yaml:"tags"`
 }
 
 // LoadPosts carrega os posts em Markdown
@@ -76,6 +78,7 @@ func LoadPosts(dir string) ([]Post, error) {
 			Title:    meta.Title,
 			Author:   meta.Author,
 			Date:     parsedDate,
+			Tags:     strings.Join(meta.Tags, ", "),
 			Filename: strings.TrimSuffix(file.Name(), ".md"),
 			HTML:     html.String(),
 		})

@@ -1,22 +1,29 @@
 {{ define "home.html" }}
-  <section class="posts">
-    {{ range . }}
-      <article class="post-summary">
-        <h2>
-          <a href="/post/{{ .Filename }}">{{ .Title }}</a>
-        </h2>
-        <p class="post-meta">
-          {{ formatDatePT .Date }} por @{{ .Author }}
-        </p>
-        <div class="post-excerpt">
-          {{ truncate 300 .HTML | safeHTML }}
-        </div>
-        <p>
-          <a href="/post/{{ .Filename }}" class="read-more">Continuar lendo →</a>
-        </p>
-      </article>
-    {{ else }}
-      <p>Nenhum post encontrado.</p>
+<section class="posts">
+  {{ range . }}
+  <article class="post-summary">
+    <h2>
+      <a href="/post/{{ .Filename }}">{{ .Title }}</a>
+    </h2>
+    <p class="post-meta">
+      {{ formatDatePT .Date }} por @{{ .Author }}
+    </p>
+    <p class="post-meta">
+      {{ if .Tags }}
+      <span class="prompt">tags:</span>
+      <span class="tag">{{ .Tags }}</span>
+    </p>
     {{ end }}
-  </section>
+    </p>
+    <div class="post-excerpt">
+      {{ truncate 200 .HTML | safeHTML }}
+    </div>
+    <p>
+      <a href="/post/{{ .Filename }}" class="read-more">Continuar lendo →</a>
+    </p>
+  </article>
+  {{ else }}
+  <p>Nenhum post encontrado.</p>
+  {{ end }}
+</section>
 {{ end }}

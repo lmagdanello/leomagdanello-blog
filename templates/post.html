@@ -1,19 +1,25 @@
 {{ define "post.html" }}
 <article class="post">
-    <header class="post-header">
-        <h1>{{ .Title }}</h1>
-        <div class="post-meta">
-            <span>{{ formatDatePT .Date }}</span>            
-            <span>@{{ .Author }}</span>
-        </div>
-    </header>
-
-    <div class="post-content">
-        {{ .HTML | safeHTML }}
+  <header class="post-header">
+    <h1>{{ .Title }}</h1>
+    <div class="post-meta">
+      <span>{{ formatDatePT .Date }}</span>
+      <span>@{{ .Author }}</span>
+      {{ if .Tags }}
+      <p class="post-tags">
+        <span class="prompt">tags:</span>
+        <span class="tag">{{ .Tags }}</span>
+      </p>
+      {{ end }}
     </div>
+  </header>
 
-    <footer class="post-footer">
-        <a href="/" class="read-more">← Voltar</a>
-    </footer>
+  <div class="post-content">
+    {{ .HTML | safeHTML }}
+  </div>
+
+  <footer class="post-footer">
+    <a href="/" class="read-more">← Voltar</a>
+  </footer>
 </article>
 {{ end }}
