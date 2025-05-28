@@ -20,7 +20,7 @@ func PostHandler(posts []loader.Post, books []loader.Book, links []loader.Social
 					"Books":   books,
 					"Links":   links,
 				}
-				err := templates.ExecuteTemplate(w, "base.html", data)
+				err := Templates.ExecuteTemplate(w, "base.html", data)
 				if err != nil {
 					log.Printf("Erro ao renderizar post: %v", err)
 					http.Error(w, "Erro interno", http.StatusInternalServerError)

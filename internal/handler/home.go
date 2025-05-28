@@ -3,6 +3,7 @@ package handler
 import (
 	"fmt"
 	"html/template"
+	"io"
 	"log"
 	"net/http"
 	"time"
@@ -12,10 +13,10 @@ import (
 	"golang.org/x/text/language"
 )
 
-var templates *template.Template
+var Templates *template.Template
 
 func InitTemplates() {
-	templates = template.Must(template.New("").Funcs(template.FuncMap{
+	Templates = template.Must(template.New("").Funcs(template.FuncMap{
 		"safeHTML": func(s interface{}) template.HTML {
 			return template.HTML(fmt.Sprint(s))
 		},
@@ -39,6 +40,10 @@ func InitTemplates() {
 		}}).ParseGlob("templates/*.html"))
 }
 
+func ExecuteTemplate(w io.Writer, name string, data any) error {
+	return Templates.ExecuteTemplate(w, name, data)
+}
+
 func HomeHandler(posts []loader.Post, books []loader.Book, links []loader.SocialLink) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		data := map[string]interface{}{
@@ -47,7 +52,7 @@ func HomeHandler(posts []loader.Post, books []loader.Book, links []loader.Social
 			"Books":   books,
 			"Links":   links,
 		}
-		err := templates.ExecuteTemplate(w, "base.html", data)
+		err := Templates.ExecuteTemplate(w, "base.html", data)
 		if err != nil {
 			log.Println("Erro no template:", err)
 			http.Error(w, "Erro interno", 500)

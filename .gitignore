@@ -48,3 +48,6 @@ coverage.out
 # ignora arquivos gerados por execução local
 /tmp/
 *.db
+
+# ignorar /public
+public/
