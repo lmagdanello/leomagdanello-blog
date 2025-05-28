@@ -1,0 +1,13 @@
+links:
+  - name: GitHub
+    url: "https://github.com/lmagdanello"
+    icon: "/static/icons/github.svg"
+    alt: "GitHub"
+  - name: LinkedIn
+    url: "https://linkedin.com/in/leonardomagdanello"
+    icon: "/static/icons/linkedin.svg"
+    alt: "LinkedIn"
+  - name: Email
+    url: "mailto:lmagdanello40@gmail.com"
+    icon: "/static/icons/email.svg"
+    alt: "Email"

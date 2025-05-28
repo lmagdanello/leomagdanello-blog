@@ -2,26 +2,63 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <title>{{.Title}} | Blog do Leonardo</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+  <meta charset="UTF-8">
+  <title>leomagdanello</title>
+  <link rel="stylesheet" href="/static/css/style.css">
 </head>
 
 <body>
-    <div class="container">
-        <!-- Sidebar -->
-        <main class="content">
-            {{if eq .Title "Home"}}
-            {{ template "home.html" .Content }}
-            {{else}}
-            {{ template "post.html" .Content }}
-            {{end}}
-        </main>
-    </div>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="profile">
+        <img src="/static/images/avatar.jpeg" alt="leomagdanello" class="avatar">
+        <pre class="shell-line"><code>leomagdanello@localhost:~$<span class="cursor">█</span></code></pre>
+        <p class="title">DevOps Architect</p>
+        <p class="bio">
+          Especialista em desenvolvimento de software com foco em Computação de Alto Desempenho e soluções em Nuvem.
+        </p>
+      </div>
 
-    <footer class="footer">
-        <p>&copy; {{ now.Year }} leomagdanello</p>
-    </footer>
+      <h3 class="sidebar-title"><span class="prompt">$</span> curl social.txt</h3>
+      <div class="social-icons">
+        {{ range .Links }}
+          <a href="{{ .URL }}" target="_blank" aria-label="{{ .Alt }}">
+            <img src="{{ .Icon }}" alt="{{ .Alt }}" class="icon">
+          </a>
+        {{ end }}
+      </div>
+            
+      <div class="reading">
+        <h3 class="sidebar-title"><span class="prompt">$</span> less books.log</h3>
+        <ul class="book-list">
+          {{ range .Books }}
+          <li>
+            {{ if .Link }}
+            <a href="{{ .Link }}" target="_blank" class="book-title">{{ .Title }}</a>
+            {{ else }}
+            <span class="book-title">{{ .Title }}</span>
+            {{ end }}
+            <span class="book-author">por {{ .Author }}</span>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main class="content">
+      {{ if eq .Title "Home" }}
+      {{ template "home.html" .Content }}
+      {{ else }}
+      {{ template "post.html" .Content }}
+      {{ end }}
+    </main>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; {{ now.Year }} @ leomagdanello</p>
+  </footer>
 </body>
 
 </html>

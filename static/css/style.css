@@ -1,21 +1,12 @@
+/* === Base === */
+
 body {
   background-color: #000;
   color: #ccc;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Consolas", monospace;
   margin: 0;
   padding: 2rem;
   line-height: 1.6;
-}
-
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.page-header h1 {
-  color: #0f0;
-  border-bottom: 1px dashed #0f0;
-  padding-bottom: 0.5rem;
 }
 
 a {
@@ -27,43 +18,212 @@ a:hover {
   text-decoration: underline;
 }
 
+
+/* === Layout === */
+
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+/* === Sidebar === */
+
+.sidebar {
+  width: 280px;
+  padding-right: 2rem;
+  margin-right: 2rem;
+  border-right: 1px dashed #00ff00;
+}
+
+.avatar {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 0.4rem;
+  border: 1px solid #0f0;
+}
+
+.sidebar-title {
+  font-family: "Courier New", monospace;
+  color: #00ff00;
+  font-size: 0.95rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.prompt {
+  color: #00ff00;
+  font-weight: bold;
+}
+
+.profile h2 {
+  font-size: 1.3rem;
+  color: #00ff00;
+  margin-bottom: 0.2rem;
+}
+
+.profile .title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #00ffff;
+  margin-bottom: 0.5rem;
+}
+
+.profile .bio {
+  font-size: 0.85rem;
+  color: #aaa;
+  line-height: 1.4;
+}
+
+.shell-line {
+  background-color: #111;
+  color: #00ff00;
+  font-family: "Consolas", monospace;
+  font-size: 1rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 1s steps(2, start) infinite;
+  color: #00ff00;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+
+/* === Social Icons === */
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  filter: brightness(150%);
+  transition: transform 0.2s ease;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+}
+
+
+/* === Livros === */
+
+.book-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.book-list li {
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.book-title {
+  font-weight: bold;
+  color: #00ffff;
+  display: block;
+}
+
+.book-title:hover {
+  text-decoration: underline;
+}
+
+.book-author {
+  color: #aaa;
+  font-size: 0.85rem;
+  margin-left: 0.5rem;
+  display: block;
+}
+
+
+/* === Conteúdo Principal === */
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.posts,
+.post {
+  width: 100%;
+  max-width: 700px;
+}
+
+
+/* === Home === */
+
+.page-header h1 {
+  font-size: 1.8rem;
+  color: #00ff00;
+}
+
 .post-summary {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .post-summary h2 a::before {
   content: ">> ";
-  color: #0f0;
+  color: #00ff00;
+  margin-right: 0.3rem;
 }
 
 .post-meta {
   font-size: 0.85rem;
   color: #888;
-  margin-bottom: 0.5rem;
+  margin: 0.3rem 0 1rem 0;
+}
+
+.post-excerpt {
+  margin-bottom: 1rem;
 }
 
 .read-more {
-  color: #0f0;
+  color: #00ff00;
   font-weight: bold;
 }
 
-footer.footer {
-  margin-top: 3rem;
-  border-top: 1px dashed #0f0;
-  text-align: center;
-  font-size: 0.85rem;
-  color: #666;
-}
+
+/* === Post Individual === */
 
 .post-header h1 {
-  color: #0ff;
   font-size: 1.5rem;
+  color: #00ffff;
 }
 
 .post-content {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
-.sidebar {
-  display: none; /* ativar se quiser no futuro */
+
+/* === Rodapé === */
+
+footer.footer {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #666;
+  border-top: 1px dashed #00ff00;
+  padding-top: 1rem;
 }

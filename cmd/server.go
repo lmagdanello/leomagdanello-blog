@@ -12,6 +12,18 @@ func main() {
 	// Inicializa os templates
 	handler.InitTemplates()
 
+	// Carregar os livros currently reading
+	books, err := loader.LoadBooks("data/books.yaml")
+	if err != nil {
+		log.Fatalf("Erro ao carregar livros: %v", err)
+	}
+
+	// Social Media links
+	links, err := loader.LoadLinks("data/links.yaml")
+	if err != nil {
+		log.Fatalf("Erro ao carregar links: %v", err)
+	}
+
 	// Carregar os posts em Markdown
 	posts, err := loader.LoadPosts("posts")
 	if err != nil {
@@ -19,7 +31,7 @@ func main() {
 	}
 
 	// Rotas
-	http.HandleFunc("/", handler.HomeHandler(posts))
+	http.HandleFunc("/", handler.HomeHandler(posts, books, links))
 	http.HandleFunc("/post/", handler.PostHandler(posts))
 
 	log.Println("Servidor rodando em http://localhost:8080")

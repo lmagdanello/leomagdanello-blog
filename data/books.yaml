@@ -1,0 +1,10 @@
+books:
+  - title: "Hyperion"
+    author: "Dan Simmons"
+    link: "https://www.goodreads.com/book/show/77566.Hyperion"
+  - title: "Marcas da Guerra"
+    author: "Chuck Wendig"
+    link: "https://www.amazon.com.br/Star-Wars-Marcas-Trilogia-Aftermath/dp/8576572788/ref=sr_1_1?crid=3ODPXYGPIB628&dib=eyJ2IjoiMSJ9.id4qRYMUH5eq31CBafj24ULTUIIIh7CKTdodP4zESMbTUKklVdXCfSi_cgaEmIhhrwbu9XUqu-NYrEJJXQKnxD1GrOb-wximCOrqOxFYohI9BSv4ej7mYAZQkF0SHHrFog8SMJVYWtIcOEsUJQZsZNn9q03j5kOMWUo2bilP93co7GLHfBoM5J74dS85WooZq6TRO6mRwBesfub_lziQxg.l1CpGLPPIQyuPs0_p-RttFOiyyD-KvI6G_Gx3fb68PE&dib_tag=se&keywords=marcas+da+guerra+star+wars&qid=1748401993&sprefix=marcas+da+guerra+,aps,375&sr=8-1&ufe=app_do:amzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9"
+  - title: "Neuromancer"
+    author: "William Gibson"
+    link: "https://www.goodreads.com/book/show/22328.Neuromancer"
